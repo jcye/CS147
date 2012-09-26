@@ -1,17 +1,40 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link rel="apple-touch-icon" href="appicon.png" />
+		<link rel="apple-touch-startup-image" href="startup.png">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-webapp-status-bar-style" content="grey" />
+		<meta name="viewport" content="width=device-width, user-scalable=no" />
 		<title>MyApp</title>
 	</head>
 	
 	<style type="text/css">
 	body{
-		background:#003399;
+		background:#093242;
 	}
 	h2, h3 {
 		font-size:50px;
 		font-weight:300;
 		color:#aaa;
+		border:0px solid #aaa;
+	}
+	.newhearder{
+		color:#000;		
+	}
+	.opacity{
+		opacity:0.4;
+	}
+	.button{
+		background:#333;
+		width:100px;
+		color:#fff;
+		height:20px;
+		-moz-border-radius: 20px;
+		-webkit-border-radius: 20px;
+		-khtml-border-radius: 10px;
+		border-radius: 10px;
+		text-align:center;
 	}
 	</style>
 	
@@ -20,17 +43,19 @@
 		<div id='bio'>Crime-solver. Noir detective extraordinaire.</div>
 	 
 	 	<h3>Assignments</h3>
-		<ul id='assignments'>
+		<ol id='assignments'>
 			<li>Go undercover</li>
 			<li>Learn HTML</li>
-		</ul>
-	
-		<h3>A nice button</h3>
-
+		</ol>	
+		<h3 class = "newheader">A nice button</h3>
+		<button class="button">Click Me!</button>	
 		<h3>An invisible seal</h3>
+		<p><img width="50" class="opacity" src="seal.png" /></p>
 
 		<h3>A video</h3>
-
+		<video width="300" height="240" controls="controls">
+		  <source src="gizmo.mp4" type="video/mp4" />
+		</video>
 		<h3>Two boxes side by side</h3>
 
 	</body>
