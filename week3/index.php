@@ -25,6 +25,7 @@
 		$result = mysql_query($query);
 		while ($row = mysql_fetch_assoc($result)) {
 			echo "<p>".$row["title"]."</p>";
+			echo "<img src='".$row["image"]."'/>";
 		}
 		?>
 		</table>
