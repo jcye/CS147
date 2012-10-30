@@ -35,8 +35,8 @@
 		<p>The neat thing about this example is that you can swipe right and left to navigate between pages, and you can also see in the code that the entire three page sequence within here is bundled into one page.</p>	
 
 		<h3>Show internal pages:</h3>
-		<p><a href="#two" data-role="button">Show page "two"</a></p>	
-		<p><a href="#popup" data-role="button" data-rel="dialog" data-transition="pop">Show page "popup" (as a dialog)</a></p>
+		<p><a href="#two" data-role="button" data-theme="b">Show page "two"</a></p>	
+		<p><a href="#popup" data-role="button" data-rel="dialog" data-transition="pop" data-theme="b">Show page "popup" (as a dialog)</a></p>
 	</div><!-- /content -->
 	
 	<div data-role="footer" data-id="samebar" class="nav-glyphish-example" data-position="fixed" data-tap-toggle="false">
@@ -44,8 +44,8 @@
 			<ul>
 				<li><a href="index.php" id="home" data-icon="custom" class="ui-btn-active">Home</a></li>
 				<li><a href="login.php" id="key" data-icon="custom">Login</a></li>
-				<li><a href="filter.php" id="beer" data-icon="custom">Filter</a></li>
-				<li><a href="#" id="skull" data-icon="custom">Settings</a></li>
+				<li><a href="filter.php" id="filter" data-icon="custom">Filter</a></li>
+				<li><a href="#" id="setting" data-icon="custom">Settings</a></li>
 			</ul>
 		</div>
 	</div>
@@ -75,8 +75,8 @@
 		<ul>
 			<li><a href="index.php" id="home" data-icon="custom">Home</a></li>
 			<li><a href="login.php" id="key" data-icon="custom" class="ui-btn-active">Login</a></li>
-			<li><a href="filter.php" id="beer" data-icon="custom">Filter</a></li>
-			<li><a href="#" id="skull" data-icon="custom">Settings</a></li>
+			<li><a href="filter.php" id="filter" data-icon="custom">Filter</a></li>
+			<li><a href="#" id="setting" data-icon="custom">Settings</a></li>
 		</ul>
 		</div>
 	</div>
@@ -102,8 +102,8 @@
 		<ul>
 			<li><a href="index.php" id="home" data-icon="custom">Home</a></li>
 			<li><a href="login.php" id="key" data-icon="custom">Login</a></li>
-			<li><a href="filter.php" id="beer" data-icon="custom" class="ui-btn-active">Filter</a></li>
-			<li><a href="#" id="skull" data-icon="custom">Settings</a></li>
+			<li><a href="filter.php" id="filter" data-icon="custom" class="ui-btn-active">Filter</a></li>
+			<li><a href="#" id="setting" data-icon="custom">Settings</a></li>
 		</ul>
 		</div>
 	</div>

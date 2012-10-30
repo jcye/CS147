@@ -20,7 +20,6 @@
 <body> 
 
 <div data-role="page">
-
 	<div data-role="header">
 	<h1>Log in</h1>
 	<a href="#" data-icon="check" id="logout" class="ui-btn-right">Logout</a>
@@ -29,10 +28,137 @@
 
 	<div data-role="content">
 	
-	<p>The form should go here</p>
-		<div data-role="fieldcontain">
-			
-		</div>	
+
+
+
+
+ <div id="fb-root"></div>
+  <script>
+    (function() {
+      var e = document.createElement('script'); e.async = true;
+          e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+          document.getElementById('fb-root').appendChild(e);
+          }());
+  </script>
+  
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({ appId: '296344457137837', 
+      status: true, 
+      cookie: true,
+      xfbml: true,
+      oauth: true});
+ 
+      FB.Event.subscribe('auth.statusChange', handleStatusChange);	
+    };
+  </script>
+  
+  <script>
+   function handleStatusChange(response) {
+     document.body.className = response.authResponse ? 'connected' : 'not_connected';
+    
+     if (response.authResponse) {
+       console.log(response);
+       updateUserInfo(response);
+     }
+   }
+   </script>
+   
+   <div id="login">
+     <p><button onClick="loginUser();">Login</button></p>
+   </div>
+   <div id="logout">
+     <div id="user-info"></div>
+     <p><button  onClick="FB.logout();">Logout</button></p>
+   </div>
+   
+  <script>
+    function loginUser() {    
+      FB.login(function(response) { }, {scope:'email'});  	
+    }
+  </script>
+  
+  <style>
+    body.connected #login { display: none; }
+    body.connected #logout { display: block; }
+    body.not_connected #login { display: block; }
+    body.not_connected #logout { display: none; }
+  </style>
+  
+  <div id="user-info"></div>
+  <script>
+    function updateUserInfo(response) {
+      FB.api('/me', function(response) {
+        document.getElementById('user-info').innerHTML = '<img src="https://graph.facebook.com/' + response.id + '/picture">' + response.name;
+      });
+    }
+  </script>
+
+  <a href="#" onclick="getUserFriends();">Get friends</a><br>
+  <div id="user-friends"></div>
+  <script>
+  function getUserFriends() {
+    FB.api('/me/friends&fields=name,picture', function(response) {
+      console.log('Got friends: ', response);
+      
+      if (!response.error) {
+        var markup = '';
+        
+        var friends = response.data;
+        
+        for (var i=0; i < friends.length && i < 25; i++) {
+          var friend = friends[i];
+          
+          markup += '<img src="' + friend.picture.data.url + '"> ' + friend.name + '<br>';
+        }
+        
+        document.getElementById('user-friends').innerHTML = markup;
+      }
+    });
+  }
+  </script>
+ 
+  <a href="#" onclick="publishStory();">Publish feed story</a><br>
+  <script>
+  function publishStory() {
+    FB.ui({
+      method: 'feed',
+      name: 'I\'m building a social mobile web app!',
+      caption: 'This web app is going to be awesome.',
+      description: 'Check out Facebook\'s developer site to start building.',
+      link: 'http://www.facebookmobileweb.com/hello',
+      picture: 'http://www.facebookmobileweb.com/hackbook/img/facebook_icon_large.png'
+    }, 
+    function(response) {
+      console.log('publishStory response: ', response);
+    });
+    return false;
+  }
+  </script>
+  
+  <a href="#" onclick="sendRequest();">Send request</a><br>
+  <script>
+  function sendRequest() {
+    FB.ui({
+      method: 'apprequests',
+      message: 'invites you to learn how to make your mobile web app social',
+    }, 
+    function(response) {
+      console.log('sendRequest response: ', response);
+    });
+  }
+  </script>
+
+
+
+
+
+
+
+
+	<div data-role="fieldcontain">
+		
+	</div>	
 	
 		
 	<div id="info">
@@ -45,8 +171,8 @@
 		<ul>
 			<li><a href="index.php" id="home" data-icon="custom">Home</a></li>
 			<li><a href="login.php" id="key" data-icon="custom" class="ui-btn-active">Login</a></li>
-			<li><a href="filter.php" id="beer" data-icon="custom">Filter</a></li>
-			<li><a href="#" id="skull" data-icon="custom">Settings</a></li>
+			<li><a href="filter.php" id="filter" data-icon="custom">Filter</a></li>
+			<li><a href="#" id="setting" data-icon="custom">Settings</a></li>
 		</ul>
 		</div>
 	</div>

@@ -53,8 +53,8 @@
 		<ul>
 			<li><a href="index.php" id="home" data-icon="custom">Home</a></li>
 			<li><a href="login.php" id="key" data-icon="custom" class="ui-btn-active">Login</a></li>
-			<li><a href="filter.php" id="beer" data-icon="custom">Filter</a></li>
-			<li><a href="#" id="skull" data-icon="custom">Settings</a></li>
+			<li><a href="filter.php" id="filter" data-icon="custom">Filter</a></li>
+			<li><a href="#" id="setting" data-icon="custom">Settings</a></li>
 		</ul>
 		</div>
 	</div>
