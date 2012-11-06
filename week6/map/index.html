@@ -141,6 +141,11 @@
 		                map: map
 		
 		            });
+		            google.maps.event.addListener(wayA, 'click', function () {
+		            	var tmpWindow = new google.maps.InfoWindow();
+		        		tmpWindow.setContent("<p>"+position.coords.latitude+"</p><p>"+position.coords.longitude+"</p>");
+		        		tmpWindow.open(map, this);
+		    		});
 		        } else {
 		            wayB = new google.maps.Marker({
 		
@@ -148,7 +153,11 @@
 		                map: map
 		
 		            });
-					 
+		            google.maps.event.addListener(wayB, 'click', function () {
+		            	var tmpWindow = new google.maps.InfoWindow();
+		        		tmpWindow.setContent("<p>"+position.coords.latitude+"</p><p>"+position.coords.longitude+"</p>");
+		        		tmpWindow.open(map, this);
+		    		});
 		            // Directions
 		            renderer = new google.maps.DirectionsRenderer({
 		                'draggable': true
